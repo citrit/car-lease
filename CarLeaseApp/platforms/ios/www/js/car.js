@@ -1,5 +1,4 @@
 function Car () {
-    this.car = "New car";
     this.startDate = Date.now();
     this.milesPerYear = 12000;
     this.currentMileage = 0;
