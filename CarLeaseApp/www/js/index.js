@@ -17,7 +17,7 @@
  * under the License.
  */
 var carLeaseApp = {
-    var Cars = [],
+    Cars: {},
     
     // Application Constructor
     initialize: function() {
@@ -49,13 +49,18 @@ var carLeaseApp = {
         
     },
     
-    addCar: function() {
-    
+    addCar: function(car) {
+        if (car)
+            carLeaseApp.Cars[car.name] = car;
     },
 
-    delCar: function() {
-    
+    delCar: function(car) {
+        delete carLeaseApp.Cars[car.name];
     },
+    
+    numCars: function() {
+        return Object.keys(carLeaseApp.Cars).length
+    }
 };
 
 carLeaseApp.initialize();

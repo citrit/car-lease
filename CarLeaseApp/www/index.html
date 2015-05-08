@@ -1,62 +1,75 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
-<html>
+<html lang="en">
     <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="msapplication-tap-highlight" content="no" />
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <link rel="stylesheet" href="themes/CarLease.min.css" />
-        <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
-        <link rel="stylesheet" type="text/css" href="js/dist/jquery.mobile-1.4.5.css" />
-        <title>Car Lease Helper</title>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/dist/jquery.js"></script>
-        <script type="text/javascript" src="js/dist/jquery.mobile-1.4.5.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript" src="js/car.js"></script>
-    </head>
-    <body>
-        <div data-role="page" id="demo-page" data-theme="a" data-url="demo-page">
-            <div data-role="header" data-theme="a">
-                <h3>Lease Helper</h3>
-                <a href="#left-panel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false">Menu</a>
-            </div><!-- /header -->
-            
-            <div data-role="content">
-                <div class="article">
-                    <p></p>
-                        You need to add a car to your system, please open the menu and select Add Car.
-                    <p></p>
-                </div><!-- /article -->
-            </div><!-- /content -->
-            
-            <div data-role="panel" id="left-panel" data-theme="a">
-                <ul data-role="listview" data-theme="a" id="carList">
-                    <li data-icon="delete"><a href="#" data-rel="close">Close</a></li>
-                    <li data-role="list-divider">Add Car</li>
-                    </ul>
-            </div><!-- /panel -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+                
+        <link href="css/bootcards.min.css" rel="stylesheet" type="text/css" />
+
+        <script src="js/dist/jquery.js"></script>
+</head>
+<!-- fixed top navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand no-break-out" title="Customers" href="/">Customers</a>
         </div>
-        CSS click to expand contents
-        </body>
-</html>
+        <button type="button" class="btn btn-default btn-back pull-left hidden" onclick="history.back()">
+            <i class="fa fa-lg fa-chevron-left"></i><span>Back</span>
+        </button>
+        <!-- menu button to show/ hide the off canvas slider -->
+        <button type="button" class="btn btn-default btn-menu pull-left offCanvasToggle" data-toggle="offcanvas">
+            <i class="fa fa-lg fa-bars"></i><span>Menu</span>
+        </button>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="/dashboard" data-pjax="#main" data-title="Customers"
+                        <i class="fa fa-dashboard"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="/companies" data-pjax="#main" data-title="Companies"
+                        <i class="fa fa-building-o"></i>
+                        Companies
+                    </a>
+                </li>
+                <li>
+                    <a href="/contacts" data-pjax="#main" data-title="Contacts"
+                        <i class="fa fa-users"></i>
+                        Contacts
+                    </a>
+                </li>
+                <li>
+                    <a href="/notes" data-pjax="#main" data-title="Notes"
+                        <i class="fa fa-clipboard"></i>
+                        Notes
+                    </a>
+                </li>
+                <li>
+                    <a href="/charts" data-pjax="#main" data-title="Charts"
+                        <i class="fa fa-bar-chart-o"></i>
+                        Charts
+                    </a>
+                </li>
+                <li>
+                    <a href="/settings" data-pjax="#main" data-title="Settings"
+                        <i class="fa fa-gears"></i>
+                        Settings
+                    </a>          
+                </li>
+            </ul>
+        </div>          
+    </div>
+</div>   
+
+</body>
