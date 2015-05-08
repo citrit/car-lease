@@ -11,7 +11,7 @@
 # Generated files
 bin/
 gen/
-ios/
+platforms/
 
 # Gradle files
 .gradle/
