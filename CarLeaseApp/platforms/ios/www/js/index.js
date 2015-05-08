@@ -17,6 +17,8 @@
  * under the License.
  */
 var carLeaseApp = {
+    Cars: {},
+    
     // Application Constructor
     initialize: function() {
         this.bindEvents();
@@ -41,6 +43,23 @@ var carLeaseApp = {
         var parentElement = document.getElementById(id);
 
         console.log('Received Event: ' + id);
+    },
+    
+    saveCars: function() {
+        
+    },
+    
+    addCar: function(car) {
+        if (car)
+            carLeaseApp.Cars[car.name] = car;
+    },
+
+    delCar: function(car) {
+        delete carLeaseApp.Cars[car.name];
+    },
+    
+    numCars: function() {
+        return Object.keys(carLeaseApp.Cars).length
     }
 };
 
