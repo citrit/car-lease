@@ -1,33 +1,30 @@
-function Car () {
-    this.name = "New car";
-    this.startDate = Date.now();
-    this.milesPerYear = 12000;
-    this.currentMileage = 0;
+function Car (name, startdate, duration, mpy, cpm) {
+    name = typeof name !== 'undefined' ? name : NewCar;
+    startdate = typeof startdate !== 'undefined' ? startdate : Date.now();
+    duration = typeof duration !== 'undefined' ? duration : 36;
+    mpy = typeof mpy !== 'undefined' ? mpy : 12000;
+    cpm = typeof cpm !== 'undefined' ? cpm : 0.10;
+    this.carName = name;
+    this.startDate = startdate;
+    this.leaseDuration = duration;
+    this.milesPerYear = mpy;
+    this.mileageRecords = {};
+    //this.mileageRecords[dnow] = 0;
+    this.costPerMile = cpm;
     
     this.toJSON = function() {
-        return JSON.stringify({"name": this.name, "startDate":this.startDate, "milesPerYear":this.milesPerYear, "currentMileage":this.currentMileage});
+        return JSON.stringify({"carName": this.carName, "startDate":this.startDate, "milesPerYear":this.milesPerYear, "mileageRecords":this.mileageRecords, "costPerMile":this.costPerMile, "leaseDuration":this.leaseDuration});
     },
     
     this.fromJSON = function(jsonStr) {
         var data = JSON.parse(jsonStr);
         var newCar = new Car();
-        newCar.name = data.name;
-        newCar.StartDate = data.startDate;
+        newCar.carName = data.carName;
+        newCar.startDate = data.startDate;
         newCar.milesPerYear = data.milesPerYear;
-        newCar.currentMileage = data.currentMileage;
+        newCar.mileageRecords = data.mileageRecords;
+        newCar.costPerMile = data.costPerMile;
+        newCar.leaseDuration = data.leaseDuration;
         return newCar;
     }
-}
-
-function CarInit() {
-    var c = new Car();
-    var jsonStr = c.toJSON();
-    console.log("toJSON: " + jsonStr);
-    var nCar = c.fromJSON(jsonStr);
-    console.log("fromJSON: " + nCar.toJSON());
-    carLeaseApp.addCar(nCar);
-    console.log("Num cars: " + carLeaseApp.numCars());
-    carLeaseApp.delCar(nCar);
-    console.log("Num cars: " + carLeaseApp.numCars());
-
 }

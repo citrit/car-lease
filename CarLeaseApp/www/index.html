@@ -1,75 +1,150 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+    
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+                <title>Car Lease</title>
+                <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css" />
+                <link rel="stylesheet" href="css/card.css" />
+                <!-- <link rel="stylesheet" href="css/CarLease.css" /> -->
                 
-        <link href="css/bootcards.min.css" rel="stylesheet" type="text/css" />
-
-        <script src="js/dist/jquery.js"></script>
-</head>
-<!-- fixed top navbar -->
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand no-break-out" title="Customers" href="/">Customers</a>
+                
+                <script src="js/dist/jquery.js"></script>
+                <script src="js/dist/jquery.mobile-1.4.5.js"></script>
+                <script src="js/dist/Chart.js"></script>
+                
+                <script src="cordova.js"></script>
+                
+                <script src="js/index.js"></script>
+                <script src="js/car.js"></script>
+                <script src="js/db.js"></script>
+                <script src="js/ui.js"></script>
+                
+    </head>
+    
+    <body>
+        
+        <div data-role="page" id="mainPage">
+            
+            <div data-role="header">
+                <h1>Car Lease App</h1>
+            </div><!-- /header -->
+            
+            <div id='carListDiv' data-role="content" class="ui-responsive">
+                
+            </div>
+            
+            <div data-role="footer" data-position="fixed">
+                <a href="#addCar" data-rel="dialog">Add Car</a>
+            </div><!-- /footer -->
+            
+        </div><!-- /page -->
+        
+        <div data-role="dialog" id="addCar">
+            
+            <div data-role="header" data-theme="a">
+                <h1>Add Car</h1>
+                
+            </div>
+            
+            <div data-role="content" data-theme="a">
+                <form action="uiUtils.addNewCar()">
+                    <table style="width:100%">
+                        <tr>
+                            <td>
+					<label for="carName">Name:</label>
+                            </td>
+                            <td>
+					<input type="text" name="carName" id="carName" value="MyCar" />
+                            </td>
+                            </tr>
+                        <tr>
+                            <td>
+					<label for="startDate">Date:</label>
+                            </td>
+                            <td>
+					<input type="date" name="startDate"  id="startDate" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                    <label for="startDate">Months:</label>
+                            </td>
+                            <td>
+                    <input type="text" name="duration"  id="duration" value="36" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                    <label for="startDate">Miles:</label>
+                            </td>
+                            <td>
+                    <input type="text" name="mpy"  id="mpy" value="12000" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                    <label for="startDate">Cost:</label>
+                            </td>
+                            <td>
+                    <input type="text" name="cpm"  id="cpm" value="0.10" />
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+                <table style="width:100%">
+                    <tr>
+                        <td>
+                <a href="#mainPage" data-role="button" data-rel="back" data-theme="a" onclick="uiUtils.addNewCar()">Add Car</a>
+                        </td>
+                        <td>
+                <a href="#mainPage" data-role="button" data-rel="back" data-theme="b">Cancel</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </div>
-        <button type="button" class="btn btn-default btn-back pull-left hidden" onclick="history.back()">
-            <i class="fa fa-lg fa-chevron-left"></i><span>Back</span>
-        </button>
-        <!-- menu button to show/ hide the off canvas slider -->
-        <button type="button" class="btn btn-default btn-menu pull-left offCanvasToggle" data-toggle="offcanvas">
-            <i class="fa fa-lg fa-bars"></i><span>Menu</span>
-        </button>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class="active">
-                    <a href="/dashboard" data-pjax="#main" data-title="Customers"
-                        <i class="fa fa-dashboard"></i>
-                        Dashboard
-                    </a>
-                </li>
-                <li>
-                    <a href="/companies" data-pjax="#main" data-title="Companies"
-                        <i class="fa fa-building-o"></i>
-                        Companies
-                    </a>
-                </li>
-                <li>
-                    <a href="/contacts" data-pjax="#main" data-title="Contacts"
-                        <i class="fa fa-users"></i>
-                        Contacts
-                    </a>
-                </li>
-                <li>
-                    <a href="/notes" data-pjax="#main" data-title="Notes"
-                        <i class="fa fa-clipboard"></i>
-                        Notes
-                    </a>
-                </li>
-                <li>
-                    <a href="/charts" data-pjax="#main" data-title="Charts"
-                        <i class="fa fa-bar-chart-o"></i>
-                        Charts
-                    </a>
-                </li>
-                <li>
-                    <a href="/settings" data-pjax="#main" data-title="Settings"
-                        <i class="fa fa-gears"></i>
-                        Settings
-                    </a>          
-                </li>
-            </ul>
-        </div>          
-    </div>
-</div>   
-
-</body>
+        
+        <div data-role="dialog" id="addMileage">
+            
+            <div data-role="header" data-theme="a">
+                <h1>Add Mileage</h1>
+                
+            </div>
+            
+            <div data-role="content" data-theme="a">
+                <form action="uiUtils.addCarMileage()">
+                    <table style="width:100%">
+                        <tr>
+                            <td>
+                                <label for="carMileage">Mileage:</label>
+                            </td>
+                            <td>
+                                <input type="text" name="carMileage" id="carMileage" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="mileageDate">Date:</label>
+                            </td>
+                            <td>
+                                <input type="date" name="mileageDate"  id="mileageDate" />
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+                <table style="width:100%">
+                    <tr>
+                        <td>
+                            <a href="#mainPage" data-role="button" data-rel="back" data-theme="a" onclick="uiUtils.addCarMileage()">Add Mileage</a>
+                        </td>
+                        <td>
+                            <a href="#mainPage" data-role="button" data-rel="back" data-theme="b">Cancel</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        
+    </body>
+</html>

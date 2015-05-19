@@ -17,6 +17,9 @@
     <feature name="Console">
         <param name="ios-package" value="CDVLogger" />
     </feature>
+    <feature name="SpinnerDialog">
+        <param name="ios-package" value="CDVSpinnerDialog" />
+    </feature>
     <name>CarLeaseApp</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
