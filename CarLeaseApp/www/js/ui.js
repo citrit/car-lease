@@ -28,7 +28,7 @@ carCharts: {},
         
         var monthsPassed = carLeaseApp.monthDiff(new Date(carLeaseApp.Cars[carLeaseApp.curCar].startDate), new Date(cdate));
         // The values array passed into addData should be one for each dataset in the chart
-        uiUtils.carCharts[carLeaseApp.curCar].datasets[1].points[monthsPassed+1].value = mileage;
+        uiUtils.carCharts[carLeaseApp.curCar].datasets[0].points[monthsPassed+1].value = mileage;
         //uiUtils.carCharts[carLeaseApp.curCar].addData([monthsPassed+1, mileage], ""+(monthsPassed+1));
         // This new data will now animate at the end of the chart.
         uiUtils.carCharts[carLeaseApp.curCar].update();
@@ -96,17 +96,7 @@ carCharts: {},
         var data = {
             labels: monthLabels,
             datasets: [
-                       {
-                       label: "Lease Miles",
-                       fillColor: "rgba(220,220,220,0.2)",
-                       strokeColor: "rgba(220,220,220,1)",
-                       pointColor: "rgba(220,220,220,1)",
-                       pointStrokeColor: "#fff",
-                       pointHighlightFill: "#fff",
-                       pointHighlightStroke: "rgba(220,220,220,1)",
-                       data: leaseVals
-                       },
-                       {
+                    {
                        label: "Actual Miles",
                        fillColor: "rgba(256,0,0,0.6)",
                        strokeColor: "rgba(151,187,205,1)",
@@ -115,9 +105,19 @@ carCharts: {},
                        pointHighlightFill: "#fff",
                        pointHighlightStroke: "rgba(151,187,205,1)",
                        data: actualMiles
-                       }
-                       ]
-            };
+                    },
+                    {
+                       label: "Lease Miles",
+                       fillColor: "rgba(0,128,0,0.75)",
+                       strokeColor: "rgba(220,220,220,1)",
+                       pointColor: "rgba(220,220,220,1)",
+                       pointStrokeColor: "#fff",
+                       pointHighlightFill: "#fff",
+                       pointHighlightStroke: "rgba(220,220,220,1)",
+                       data: leaseVals
+                    }
+            ]
+        };
         
         var options = {
             responsive: true,
