@@ -113,8 +113,13 @@ var carLeaseApp = {
     }
 };
 
-carLeaseApp.initialize();
-
+//page load initialization
+$( window ).load(function(){
+    console.log("Onload " + navigator.platform);
+    document.addEventListener('deviceready', carLeaseApp.onDeviceReady, false);
+    if (navigator.platform == 'MacIntel')
+        carLeaseApp.onDeviceReady();
+});
 
 function CarTest() {
     var c = new Car();
