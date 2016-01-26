@@ -1,6 +1,6 @@
 
 var uiUtils = {
-carCharts: {},
+    carCharts: {},
     
     // Application Constructor
     init: function() {
